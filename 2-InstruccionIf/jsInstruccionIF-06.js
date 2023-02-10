@@ -1,7 +1,30 @@
+/* 
+IF EJ. 6 
+NOMBRE: Silvina Gauto
+*/ 
+
 function mostrar()
 {
-	//tomo la edad  
-	alert("ok");
+
+	let edad;
+
+	edad = document.getElementById("txtIdEdad").value;
+	edad = parseInt(edad);
+
+	if (edad >= 18) {
+		alert("Esta persona es mayor de edad");
+	}
+
+	else {
+		if (edad > 12 && edad < 18) {
+			alert("Esta persona es adolescente");
+		}
+
+		else {
+			alert ("Esta persona es un niño");
+		}
+	}
+
 
 
 

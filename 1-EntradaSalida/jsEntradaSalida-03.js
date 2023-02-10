@@ -26,10 +26,10 @@ el iva, el importe con iva, el valor del descuento y el total a pagar.
 
 function mostrar()
 {
-	/*
+	
 	var nombreIngresado;
 	nombreIngresado=txtIdNombre.value;
-	alert(nombreIngresado); */
+	alert(nombreIngresado); 
 
 
 
@@ -80,4 +80,3 @@ function mostrar()
 }
 
 
-//11,495

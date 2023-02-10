@@ -8,7 +8,224 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
-function CalcularPrecio () 
-{
+
+
+
+
+function CalcularPrecio () {
  	
+    let cantidadLamparas;
+    let marca;
+    let precioDescuento;
+
+    let precio; 
+    let descuento;
+    let precioFinal;
+    let impuesto;
+    let total;
+    
+
+    cantidadLamparas = document.getElementById("txtIdCantidad").value;
+    marca = document.getElementById("Marca").value;
+    precioDescuento = document.getElementById("txtIdprecioDescuento");
+
+    cantidadLamparas = parseInt(cantidadLamparas);
+
+    precio = 35;
+
+    if (cantidadLamparas >= 6) {
+        descuento = 0.5;
+    } //a
+
+    else {
+        if (cantidadLamparas == 5) {
+            if (marca == "ArgentinaLuz") {
+                descuento = 0.6;
+            }
+
+            else {
+                descuento = 0.7;
+                
+            }
+        
+        } else {
+                if (cantidadLamparas == 4) {
+                    if (marca ==  "ArgentinaLuz" || marca == "FelipeLamparas") {
+                        descuento = 0.75;
+                    }
+
+                    else {
+                        descuento = 0.8;
+                    }
+                }
+
+                else {
+                    if (cantidadLamparas == 3) {
+                        if(marca == "ArgentinaLuz") {
+                            descuento = 0.85;
+                        }
+
+                        else {
+                            if (marca == "FelipeLamparas") {
+                                descuento = 0.9;
+                            }
+                            
+                            else {
+                                descuento = 0.95;
+                            }
+
+                        }
+                        
+                    }
+                    
+                }
+
+            }
+        
+    
+    }
+
+    
+    
+    precioFinal = cantidadLamparas * precio * descuento;
+    precioDescuento.value = precioFinal; 
+    
+
+
+    if (precioFinal >= 120) {
+        impuesto = precioFinal * 10/100;
+        total = precioFinal + impuesto;
+        alert(" Usted pago " + total + " siendo " + impuesto + " el impuesto que se pago" );
+    } 
+
 }
+
+
+
+
+
+
+
+
+
+
+/* let cantidadLamparas;
+    let marca;
+    let calculo;
+    let precioDescuento;
+    
+    cantidadLamparas = document.getElementById("txtIdCantidad").value;
+    marca = document.getElementById("Marca").value;
+    precioDescuento = document.getElementById("txtIdprecioDescuento");
+
+    cantidadLamparas = parseInt(cantidadLamparas);
+    
+    
+
+    if (cantidadLamparas >= 6 ) {
+        calculo = cantidadLamparas * 35 * 0.5;
+        precioDescuento.value = calculo;
+    }
+
+    else {
+       
+
+       calculo = cantidadLamparas * 35;
+       precioDescuento.value = calculo;
+    }  
+    
+    
+    
+    if ( marca == "ArgentinaLuz")  {
+        if(cantidadLamparas == 5) {
+            calculo = cantidadLamparas * 35 * 0.6;
+        }
+
+        else {
+          calculo = cantidadLamparas * 35   
+        }
+
+    } */
+
+
+
+/* let cantidadLamparas;
+    let marca;
+    let precioDescuento;
+
+    let precio; 
+    let descuento;
+    let precioFinal;
+    
+
+    cantidadLamparas = document.getElementById("txtIdCantidad").value;
+    marca = document.getElementById("Marca").value;
+    precioDescuento = document.getElementById("txtIdprecioDescuento");
+
+    cantidadLamparas = parseInt(cantidadLamparas);
+
+    precio = 35;
+
+    if (cantidadLamparas >= 6) {
+        descuento = 0.5
+    } 
+
+    else {
+        descuento = 1
+
+        if (marca == "ArgentinaLuz") {
+            if (cantidadLamparas == 5) {
+                descuento = 0.6;
+            }
+        } 
+
+        else {
+            descuento = 0.7
+        }
+
+    }
+    
+    precioFinal = cantidadLamparas * precio * descuento;
+    precioDescuento.value = precioFinal; */
+
+
+
+
+/* let cantidadLamparas;
+    let descuento;
+    let precioSinDescuento;
+    let precioFinal;
+    let marca;
+    let porcentaje;
+
+    cantidadLamparas = document.getElementById("txtIdCantidad").value;
+    cantidadLamparas = parseInt(cantidadLamparas);
+    marca = document.getElementById("Marca").value;
+    precioSinDescuento = 35 * cantidadLamparas;
+
+    if(cantidadLamparas >= 6){
+    //regla de tres simple para sacar el porcentaje de un valor
+    porcentaje = 50;
+}
+else
+{
+    if(cantidadLamparas == 5){
+        if(marca == "ArgentinaLuz"){
+
+            porcentaje = 40;
+        }
+        else{
+            porcentaje = 30;
+        }
+    }
+    else{
+        //si compro menos cantidad de 6, no tengo descuento, es igual a numero 0
+        porcentaje = 0;
+    }
+   
+}
+descuento = precioSinDescuento * porcentaje/100;
+precioFinal = precioSinDescuento - descuento;
+
+document.getElementById("txtIdprecioDescuento").value = precioFinal;
+*/
