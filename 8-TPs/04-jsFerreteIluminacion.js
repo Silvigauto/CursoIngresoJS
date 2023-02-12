@@ -12,9 +12,160 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
 
 
 
-function CalcularPrecio () {
- 	
+function CalcularPrecio () { 
+    
     let cantidadLamparas;
+    let marca;
+    let precioDescuento;
+
+    let precio; 
+    let descuento;
+    let precioFinal;
+    let impuesto;
+    let total;
+    
+
+    cantidadLamparas = document.getElementById("txtIdCantidad").value;
+    marca = document.getElementById("Marca").value;
+    precioDescuento = document.getElementById("txtIdprecioDescuento");
+
+    cantidadLamparas = parseInt(cantidadLamparas);
+
+    precio = 35;
+
+
+    switch(cantidadLamparas) {
+        
+        case 5: 
+            switch(marca) {
+                case "ArgentinaLuz" :
+                    descuento = 0.6;
+                    break;
+                default :
+                    descuento = 0.7;
+            }   
+        break;
+        case 4:
+            switch(marca) {
+                case "ArgentinaLuz":
+                case "FelipeLamparas":
+                    descuento = 0.75;
+                    break;
+                default: 
+                    descuento = 0.8;
+            }
+        break;
+        case 3: 
+            switch (marca) {
+                case "ArgentinaLuz": 
+                    descuento = 0.85;
+                    break;
+                case "FelipeLamparas":
+                    descuento = 0.9;
+                    break;
+                default: 
+                    descuento = 0.95;
+
+            }
+        break;
+        default : 
+            descuento = 0.5;
+            
+       
+    }
+
+    precioFinal = cantidadLamparas * precio * descuento;
+    precioDescuento.value = precioFinal; 
+
+    if (precioFinal >= 120) {
+        impuesto = precioFinal * 10/100;
+        total = precioFinal + impuesto;
+        alert(" Usted pago " + total + " siendo " + impuesto + " el impuesto que se pago" );
+    } 
+
+}
+
+
+
+
+
+    /* SWITCH  
+    
+    let cantidadLamparas;
+    let marca;
+    let precioDescuento;
+
+    let precio; 
+    let descuento;
+    let precioFinal;
+    let impuesto;
+    let total;
+    
+
+    cantidadLamparas = document.getElementById("txtIdCantidad").value;
+    marca = document.getElementById("Marca").value;
+    precioDescuento = document.getElementById("txtIdprecioDescuento");
+
+    cantidadLamparas = parseInt(cantidadLamparas);
+
+    precio = 35;
+
+
+    switch(cantidadLamparas) {
+        case 6:
+            descuento = 0.5;
+            break;
+        case 5: 
+            switch(marca) {
+                case "ArgentinaLuz" :
+                    descuento = 0.6;
+                    break;
+                default :
+                    descuento = 0.7;
+            }   
+        break;
+        case 4:
+            switch(marca) {
+                case "ArgentinaLuz":
+                case "FelipeLamparas":
+                    descuento = 0.75;
+                    break;
+                default: 
+                    descuento = 0.8;
+            }
+        break;
+        case 3: 
+            switch (marca) {
+                case "ArgentinaLuz": 
+                    descuento = 0.85;
+                    break;
+                case "FelipeLamparas":
+                    descuento = 0.9;
+                    break;
+                default: 
+                    descuento = 0.95;
+
+            }
+        break;
+       
+    }
+
+    precioFinal = cantidadLamparas * precio * descuento;
+    precioDescuento.value = precioFinal; 
+
+    if (precioFinal >= 120) {
+        impuesto = precioFinal * 10/100;
+        total = precioFinal + impuesto;
+        alert(" Usted pago " + total + " siendo " + impuesto + " el impuesto que se pago" );
+    } */
+
+
+
+
+/*
+anidacion correcta
+
+let cantidadLamparas;
     let marca;
     let precioDescuento;
 
@@ -96,15 +247,7 @@ function CalcularPrecio () {
         impuesto = precioFinal * 10/100;
         total = precioFinal + impuesto;
         alert(" Usted pago " + total + " siendo " + impuesto + " el impuesto que se pago" );
-    } 
-
-}
-
-
-
-
-
-
+    } */
 
 
 
