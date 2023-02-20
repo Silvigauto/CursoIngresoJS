@@ -68,6 +68,12 @@ function CalcularPrecio () {
 
             }
         break;
+        case 2:
+            descuento = 1;
+            break;
+        case 1:
+            descuento = 1;
+            break;
         default : 
             descuento = 0.5;
             

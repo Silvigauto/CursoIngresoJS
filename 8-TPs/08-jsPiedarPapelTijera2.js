@@ -11,19 +11,29 @@ function comenzar()
 
 
 }//FIN DE LA FUNCIÓN
+
 function piedra()
 {
 	
 
 }//FIN DE LA FUNCIÓN
+
+
+
 function papel()
 {
 
 }//FIN DE LA FUNCIÓN
+
+
+
+
 function tijera()
 {
 	
 }//FIN DE LA FUNCIÓN
+
+
 
 function mostrarResultado()
 {

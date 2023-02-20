@@ -1,8 +1,12 @@
+/*
+SWITCH EJ 10 
+NOMBRE: SILVINA GAUTO
+
+*/ 
+
+
 function mostrar()
 {
-	//var estacionIngresada =txtIdEstacion.value;
-	//alert(estacionIngresada);
-
 	let estacionIngresada;
 	let destinoIngresado;
 	let mensaje;
