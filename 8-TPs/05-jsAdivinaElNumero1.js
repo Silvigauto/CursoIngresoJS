@@ -9,6 +9,105 @@ de no ser igual se debe informar si “falta…”  para llegar al número secre
 */
 
 
+
+let numeroSecreto;
+let intentos;
+
+intentos = 0;
+
+function comenzar() {
+
+    numeroSecreto = Math.floor(Math.random() * (101 - 1) - 1);
+    console.log(numeroSecreto)
+
+    alert("Se ha generado un numero aleatorio entre 1 y 100. Intenta adivinar cual es, utilizando el botón 'verificar'");
+
+}
+
+function verificar() { 
+
+    let numeroIngresado;
+
+
+    numeroIngresado = document.getElementById("txtIdNumero").value;
+    numeroIngresado = parseInt(numeroIngresado)
+
+    intentos++
+
+    document.getElementById("txtIdIntentos").value = intentos
+
+    if (numeroIngresado < 0 || numeroIngresado > 100) {
+        alert("Ingrese un numero del 1 al 100")
+    } else {
+        if(numeroIngresado == numeroSecreto) {
+            
+            alert('lo has adivinado en ' + intentos + " intentos")
+        }
+
+        else { 
+            if (numeroIngresado < numeroSecreto) {
+                
+                alert("te falta..")
+            } else {
+                if(numeroIngresado > numeroSecreto) {
+                    alert("te pasaste")
+                }
+            }
+        }
+    }
+    
+}
+
+
+
+
+
+
+
+/* correcto
+
+let numeroIngresado;
+    let mensaje;
+    
+    numeroIngresado = document.getElementById("txtIdNumero").value;
+    numeroIngresado = parseInt(numeroIngresado);
+ 
+    intentos++;
+    document.getElementById("txtIdIntentos").value = intentos;
+
+    if (numeroIngresado > 100 || numeroIngresado < 1)
+    {
+      mensaje = "Ese numero está fuera del rango deseado (1 a 100)";
+    }
+    else
+    {
+      if (numeroIngresado == numeroSecreto)
+      {
+        mensaje = "Usted es el ganador!! Y en solo: " + intentos + " intentos!.";
+      }
+      else
+      {
+        if (numeroIngresado > numeroSecreto)
+        {
+          mensaje = "Se pasó...";
+        }
+        else
+        {
+          if (numeroIngresado < numeroSecreto)
+          {
+            mensaje = "Se pasó...";
+          }
+          else
+          {
+            mensaje = "Falta...";
+          }
+        }
+      }
+    }
+    alert(mensaje); 
+*/
+
+
 /* let numeroSecreto; 
 let contadorIntentos;
 let numeroIngresado;
@@ -54,60 +153,3 @@ function verificar() {
 
   
 } */
-
-let numeroSecreto;
-let intentos;
-
-intentos = 0;
-
-function comenzar()
-{
-    numeroSecreto = Math.floor(Math.random() * (101 - 1) - 1);
-   
-    alert("Se ha generado un numero aleatorio entre 1 y 100. Intenta adivinar cual es, utilizando el botón 'verificar'");
-}
-
-function verificar()
-{ 
-    let numeroIngresado;
-    let mensaje;
-    
-    numeroIngresado = document.getElementById("txtIdNumero").value;
-    numeroIngresado = parseInt(numeroIngresado);
- 
-    intentos++;
-    document.getElementById("txtIdIntentos").value = intentos;
-
-    if (numeroIngresado > 100 || numeroIngresado < 1)
-    {
-      mensaje = "Ese numero está fuera del rango deseado (1 a 100)";
-    }
-    else
-    {
-      if (numeroIngresado == numeroSecreto)
-      {
-        mensaje = "Usted es el ganador!! Y en solo: " + intentos + " intentos!.";
-      }
-      else
-      {
-        if (numeroIngresado > numeroSecreto)
-        {
-          mensaje = "Se pasó...";
-        }
-        else
-        {
-          if (numeroIngresado < numeroSecreto)
-          {
-            mensaje = "Se pasó...";
-          }
-          else
-          {
-            mensaje = "Falta...";
-          }
-        }
-      }
-    }
-    alert(mensaje);
-}
-
-

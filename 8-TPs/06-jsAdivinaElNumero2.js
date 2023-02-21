@@ -9,6 +9,94 @@
 Desde  6 Intentos hasta 10:”falta técnica”
 Más de 10 intentos: “afortunado en el amor!!”.*/
 
+let numeroSecreto;
+
+let intentos = 0 ;
+
+
+
+function comenzar() {
+	numeroSecreto = Math.floor(Math.random() * 101)
+	console.log(numeroSecreto)
+	alert("Se ha generado un numero random del 1 al 100")
+	
+}
+
+function verificar() {
+	let mensaje;
+
+	numeroIngresado = document.getElementById("txtIdNumero").value;
+	numeroIngresado = parseInt(numeroIngresado);
+
+	intentos++;
+	document.getElementById("txtIdIntentos").value = intentos;
+
+	
+
+	//verificar que sea un numero del 1 al 100
+
+	if (numeroIngresado > 100 || numeroIngresado < 0) {
+		mensaje = "Error, ingrese un numero del 1 al 100"
+	}  else {
+		if (numeroIngresado == numeroSecreto) {
+			switch(intentos) {
+				case 1: 
+					mensaje = "Usted es psiquico"
+					break;
+				case 2: 
+					mensaje = "Excelente percepcion"
+					break; 
+				case 3: 
+					mensaje = "Esto es suerte" 
+					break;
+				case 4:
+					mensaje = "Excelente tecnica"
+					break;
+				case 5: 
+					mensaje = "Usted esta en la medida"
+					break;
+				case 6:
+				case 7:
+				case 8:
+				case 9:
+				case 10:
+					mensaje = "Falta tecnica"
+					break;
+				default:
+					mensaje = "Afortunado en el amor XD"
+			}
+		} else {
+			if (numeroIngresado != numeroSecreto) {
+				mensaje = "Prueba de nuevo"
+			}
+		}
+	}
+
+	alert(mensaje) ;
+	
+	
+
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* correcta
+
 let numeroIngresado;
 let numeroSecreto; 
 let contadorIntentos;
@@ -83,3 +171,6 @@ function verificar()
 	
 
 }
+
+
+*/
