@@ -24,6 +24,8 @@ function mostrar()
 	let contadorPositivos = 0;
 	let contadorPares = 0;
 	let contadorCero = 0
+	let banderaNegativos = false;
+	let banderaPositivos = false
 
 	
 
@@ -36,11 +38,13 @@ function mostrar()
 		if (numeroIngresado < 0) {
 			sumaNegativos = numeroIngresado + sumaNegativos;
 			contadorNegativos++;
+			banderaNegativos = true;
 			
 		} else {
 			if (numeroIngresado > 0) {
 				sumaPositivos = numeroIngresado + sumaPositivos;
 				contadorPositivos++;
+				banderaPositivos = true
 			} else {
 				if (numeroIngresado == 0) {
 					contadorCero++
@@ -55,19 +59,43 @@ function mostrar()
 
 		respuesta = confirm("Desea continuar ingresando numeros?")
 
-	} while (respuesta == true)
+	} while (respuesta == true) 
 
-	promedioPositivos = sumaPositivos / contadorPositivos;
-	promedioNegativos = sumaNegativos / contadorNegativos;
+
+	if (banderaPositivos) {
+		promedioPositivos = sumaPositivos / contadorPositivos;
+	} else {
+		promedioPositivos = "No hay promedio de positivos que calcular"
+	}
+
+	if(banderaNegativos) {
+		promedioNegativos = sumaNegativos / contadorNegativos;
+	} else {
+		promedioNegativos = "No hay promedio de negativos que calcular"
+	}
+	
+
+	
+
 	diferenciaNegativosPositivos = sumaPositivos - sumaNegativos;
 
+
+
 	document.write("la suma de negativos es :"+sumaNegativos );
+
 	document.write("<br> La suma de los positivos es " + sumaPositivos);
+
 	document.write("<br> La cantidad de positivos es " + contadorPositivos);
+
 	document.write("<br> La cantidad de los negativos es " + contadorNegativos);
+
 	document.write("<br> La cantidad de ceros es " + contadorCero);
+
 	document.write("<br> El promedio de los postivos es " + promedioPositivos);
+	
 	document.write("<br> El promedio de los negativos es " + promedioNegativos);
+
 	document.write("<br> La diferencia entre positivos y negativos es " + diferenciaNegativosPositivos);
+
 	document.write("<br> La cantidad de numeros pares es " + contadorPares )
 }//FIN DE LA FUNCIÓN

@@ -4,6 +4,50 @@ mostrar el número máximo y el número mínimo ingresado.*/
 
 
 
+function mostrar() {	// declarar variables
+	let numeroIngresado;
+	let banderaDelPrimero = true
+	let numeroMaximo;
+	let numeroMinimo;
+	let respuesta;
+
+	do {
+		do {
+		numeroIngresado = prompt("Ingrese un numero")
+		numeroIngresado = parseInt(numeroIngresado)
+		} while(isNaN(numeroIngresado))
+
+		if (banderaDelPrimero) {
+		numeroMaximo = numeroIngresado
+		numeroMinimo = numeroIngresado
+
+		banderaDelPrimero = false
+		} else {
+			if (numeroIngresado > numeroMaximo) {
+			numeroMaximo = numeroIngresado
+			} else {
+				if(numeroIngresado < numeroMinimo) {
+					numeroMinimo = numeroIngresado
+				}
+			}
+		}
+
+	respuesta = confirm("Desea continuar?")
+
+	} while (respuesta == true)
+
+	
+
+	txtIdMaximo.value = numeroMaximo;
+	txtIdMinimo.value = numeroMinimo;
+
+}//FIN DE LA FUNCIÓN  
+
+
+
+/*  RESPUESTA CORRECTA CLASE
+
+
 function mostrar()
 {	// declarar variables
 	var banderaDelPrimero;
@@ -36,10 +80,10 @@ function mostrar()
 			if(numeroIngresado > numeroMaximo) {
 				numeroMaximo = numeroIngresado;
 			} else {
-				//numeroMinino = numeroIngresado: // NO
-				/*
-				10 11 12  
-				*/ 
+				//numeroMinino = numeroIngresado: // NO 10 11 12
+				
+				  
+				
 				if(numeroIngresado < numeroMinimo) {
 					numeroMinimo = numeroIngresado
 				}
@@ -56,7 +100,10 @@ function mostrar()
 	txtIdMinimo.value=numeroMinimo;
 
 
-}//FIN DE LA FUNCIÓN
+}//FIN DE LA FUNCIÓN  */
+
+
+
 
 
 /* while(respuesta=="si")

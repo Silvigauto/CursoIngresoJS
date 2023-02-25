@@ -9,6 +9,43 @@ e informar la suma acumulada y el promedio.
 */
 function mostrar()
 {
+	let suma  = 0;
+	let contador = 0
+	let numero;
+	let respuesta; 
+
+	do{
+		
+		do {
+			numero = prompt("ingrese numero")
+			numero = parseInt(numero);
+			
+		} while (isNaN(numero))
+
+		contador++;
+		suma += numero ;
+
+		respuesta = confirm("Desea continuar")
+
+	} while (respuesta == true)
+
+	
+	txtIdSuma.value = suma;
+	txtIdPromedio.value = suma/contador
+
+}//FIN DE LA FUNCIÓN
+
+
+
+
+
+
+
+
+
+
+/* function mostrar()
+{
 	var contador;
 	var acumulador;
 	var respuesta;
@@ -37,4 +74,4 @@ function mostrar()
 	txtIdSuma.value=acumulador;
 	txtIdPromedio.value=acumulador/contador;
 
-}//FIN DE LA FUNCIÓN
+}//FIN DE LA FUNCIÓN*/ 

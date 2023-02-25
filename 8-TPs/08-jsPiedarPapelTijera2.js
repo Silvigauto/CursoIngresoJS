@@ -12,6 +12,12 @@ let ContadorDeEmpates=0;
 let ContadorDeGanadas=0;
 let ContadorDePerdidas=0;
 
+let ganados;
+let perdidos;
+let empates;
+
+let mensaje;
+
 function comenzar()
 {
 	//Genero el número RANDOM entre 1 y 3
@@ -26,17 +32,23 @@ function piedra()
 {
 	switch(eleccionMaquina) {
 		case 1: 
-			alert("empataste");
+			mensaje = "empataste";
 			ContadorDeEmpates++
 			break;
 		case 2: 
-			alert("Perdiste");
+			mensaje ="Perdiste";
+			ContadorDePerdidas++
 			break;
 		case 3: 
-			alert("Ganaste");
+			mensaje = "Ganaste";
 			break;
 
-	}
+	} 
+	alert(mensaje)
+
+	empates = document.getElementById("txtIdEmpatadas");
+	empates.value = ContadorDeEmpates 
+
 
 }//FIN DE LA FUNCIÓN
 
@@ -56,6 +68,8 @@ function papel()
 			alert("Perdiste")
 			break;
 	}
+
+	alert(mensaje)
 }//FIN DE LA FUNCIÓN
 
 
@@ -81,14 +95,11 @@ function tijera()
 
 function mostrarResultado()
 {
-	/* let ganados;
-	let perdidos;
-	let empates;
+	
 
-	empates = document.getElementById("txtIdEmpatadas");
-	empates.value = ContadorDeEmpates */ 
+	 
 
-	alert("hola")
+	
 
 	
 }

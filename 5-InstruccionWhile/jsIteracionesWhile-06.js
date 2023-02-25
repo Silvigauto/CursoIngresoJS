@@ -7,6 +7,35 @@ Nombre: Silvina Gauto;
 
 function mostrar()
 {
+	let contador;
+	let suma;
+	let numeroIngresado;
+
+	contador = 0;
+	suma = 0
+
+	do {
+		do{
+			numeroIngresado = prompt("Ingrese un numero");
+			numeroIngresado = parseInt(numeroIngresado)
+		} while (isNaN(numeroIngresado))
+
+		contador++;
+		suma += numeroIngresado
+	} while(contador < 5)
+
+	txtIdSuma.value = suma
+	txtIdPromedio.value = suma/contador
+	
+	
+
+}//FIN DE LA FUNCIÓN
+
+
+/* Clase respuesta correcta
+
+function mostrar()
+{
 	let numeroIngresado;
 	let contador;
 	let acumulador; 
@@ -36,6 +65,11 @@ function mostrar()
 	
 
 }//FIN DE LA FUNCIÓN
+
+
+*/ 
+
+
 
 /*let contador;
 	let acumulador;
