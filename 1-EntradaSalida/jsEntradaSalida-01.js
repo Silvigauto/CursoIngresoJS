@@ -1,5 +1,4 @@
-/* Practica parcial
- Ejercicio 1
+/* Practica parcial  Ejercicio 1
 La Premier League de Inglaterra necesita un sistema 
 capaz de reunir las estadisticas de los 
 jugadores que la integran.
@@ -20,7 +19,7 @@ b)El jugador Argentino con menos rojas recibidas.
 c)El porcentaje de jugadores Ingleses de la liga
 
 NOTA: Deben poder ingresarse todos números positivos,
- no se deben pueden ingresar números negativos.
+ no se deben pueden ingresar números negativos. 
  
 
 
@@ -71,10 +70,14 @@ function mostrar () {
 			cantidadRojas = parseInt(cantidadRojas)
 		} while (isNaN(cantidadRojas) || cantidadRojas < 0)
 
+		
+
 		do {
 			goles = prompt("Ingrese la cantidad de goles hechos")
 			goles = parseInt(goles)
 		} while (isNaN(goles) || goles < 0)
+
+		
 
 		//condiciones
 
@@ -92,10 +95,10 @@ function mostrar () {
 		}
 
 		if (nacionalidad  == "argentino") {
-			if(bandera == true) {
+			if(banderaRoja == true) {
 				minimoRojas = cantidadRojas
 				nombreMinimoRojas = nombre
-				bandera = false;
+				banderaRoja = false;
 			} else {
 				if (cantidadRojas < minimoRojas) {
 					minimoRojas = cantidadRojas
@@ -132,15 +135,134 @@ function mostrar () {
 
 } */
 
+/* Ejercicio 1 intento 1 
+La Premier League de Inglaterra necesita un sistema capaz de reunir las estadisticas de los 
+jugadores que la integran.
+Para ellos se pide realizar una app.
+
+Se debe ingresar por cada jugador
+
+-Nombre del jugador
+-Nacionalidad
+-Posición (Arquero, Defensor, Mediocampista o Delantero)
+-Cantidad de Tarjetas Rojas recibidas
+-Goles 
+
+Se necesita saber
+
+a)El goleador del torneo
+b)El jugador Argentino con menos rojas recibidas.
+c)El porcentaje de jugadores Ingleses de la liga
+
+NOTA: Deben poder ingresarse todos números positivos, no se deben pueden ingresar números negativos.
+
+function mostrar () {
+	
+	let respuesta;
+	let nombreJugador;	
+	let nacionalidad;
+	let posicion;
+	let cantidadTarjetasRojas;
+	let cantidadGoles;
+
+	let maximoGoleador;
+	let nombreMaximoGoleador;
+
+	let minimoTarjetasRojas;
+	let nombreMinimoTarjetasRojas;
+
+	let bandera1;
+	let bandera2;
+
+	let porcentaje;
+	let mensaje;
+
+	let contadorIngles ;
+	let contadorTotal ;
+
+	bandera1 = true;
+	bandera2 = true;
+
+	contadorIngles = 0;
+	contadorTotal = 0;
+
+	do {
+		
+		do {
+			nombreJugador = prompt ("Ingrese el nombre del Jugador");
+		} while(nombreJugador == ""|| !isNaN(nombreJugador) );
+
+		do {
+			nacionalidad = prompt ("Ingrese la nacionalidad");
+		} while(nacionalidad == ""|| !isNaN(nacionalidad) );
+		
+		do {
+			posicion = prompt("Ingrese su posicion");
+		} while (posicion != "arquero" && posicion != "defensor" && posicion != "mediocampista" && posicion != "delantero" );
+
+		do {
+			cantidadTarjetasRojas = prompt("Ingrese la  cantidad de Tarjetas Rojas");
+			cantidadTarjetasRojas = parseInt(cantidadTarjetasRojas);
+		}  while (isNaN(cantidadTarjetasRojas) || cantidadTarjetasRojas < 0);
+
+		
+
+		do {
+			cantidadGoles = prompt("Ingrese la  cantidad de Goles");
+			cantidadGoles = parseInt(cantidadGoles);
+		}  while (isNaN(cantidadGoles) || cantidadGoles < 0);
+
+
+		if(bandera1 == true) {
+			bandera1 = false;
+
+			maximoGoleador = cantidadGoles;
+			nombreMaximoGoleador = nombreJugador;
+		} else {
+			if(cantidadGoles > maximoGoleador) {
+				maximoGoleador = cantidadGoles;
+				nombreMaximoGoleador = nombreJugador;
+			}
+		}
+
+		switch (nacionalidad) {
+			case "argentino":
+				if(bandera2 == true) {
+					bandera2 = false;
+					minimoTarjetasRojas = cantidadTarjetasRojas;
+					nombreMinimoTarjetasRojas = nombreJugador;
+				} else {
+					if(cantidadTarjetasRojas < minimoTarjetasRojas) {
+						minimoTarjetasRojas = cantidadTarjetasRojas;
+						nombreMinimoTarjetasRojas = nombreJugador;
+					}
+				}
+			break;
+			case "ingles":
+				contadorIngles++
+			break;
+		}
+
+		contadorTotal++; 
+
+
+		respuesta = confirm("Desea continuar agregando jugadores?")
+	} while (respuesta == true)
+
+	porcentaje = contadorIngles / contadorTotal * 100;
 
 
 
+	mensaje = "\n El goleador del torneo es " + nombreMaximoGoleador;
+	mensaje += "\n El jugador argentino con menos rojas recibidas es " + nombreMinimoTarjetasRojas;
+	mensaje += "\n El porcentaje de jugadores ingleses de la liga es de " + porcentaje + "%";
+	
+	alert(mensaje)
+
+} */
 
 
-
-
-/* 
-Ejercicio 2
+/* Practica Parcial Ejercicio 2
 
 Dr. Gregory Cat (Diagnostico Veterinario)
 Para el hospital de mascotas: Princeton-Plainsboro de Nueva Jersey.
@@ -163,10 +285,10 @@ b) Cantidad de mascotas sin vacuna antirrábica y con parásitos
 c) El tipo de mascota con más ingresos por problemas digestivos.
 d) Nombre, edad y diagnóstico de la mascota más joven ingresada.
 e) Cantidad de perros ingresados por otitis.
-*/
 
 
-/*function mostrar( ) {
+
+function mostrar( ) {
 
 	let respuesta;
 	let nombre;
@@ -351,9 +473,200 @@ e) Cantidad de perros ingresados por otitis.
 } //fin funcion */
 
 
+/*ejercio 2 intento 1
+	
+Dr. Gregory Cat (Diagnostico Veterinario)
+Para el hospital de mascotas: Princeton-Plainsboro de Nueva Jersey.
 
-/* 
-Ejercicio 3
+Es necesario registrar el ingreso de las mascotas al hospital, para esto hay que considerar
+los siguientes datos y encasillarlos en ciertos diagnósticos para poder derivarlos adecuadamente:
+
+Nombre de la mascota
+Edad (Validar 1 - 20)
+Tipo: (Validar “gato”, “perro”, “hamster”)
+Peso: (Más de 0)
+Diagnostico: (Validar “problemas digestivos”, “otitis”, “alergias en la piel”, “parasitos”, 
+“picazon de abeja”)
+Vacuna antirrábica (validar “si”, ”no”)
+
+Informes:
+
+a) Nombre de la mascota más vieja con la vacuna antirrábica -- si vacuna antirabica y maximo
+b) Cantidad de mascotas sin vacuna antirrábica y con parásitos -- no vacuna antirabica 
+c) El tipo de mascota con más ingresos por problemas digestivos.  --switch diagnostico case problemas dig
+d) Nombre, edad y diagnóstico de la mascota más joven ingresada. --caso minimo
+e) Cantidad de perros ingresados por otitis. --switch diagnostico case otitis
+
+
+
+
+function mostrar () {
+	let respuesta;
+	let mensaje;
+
+	let edad;
+	let tipo;
+	let peso;
+	let diagnostico;
+	let vacuna;
+
+	let banderaMasVieja;
+	let edadMasVieja;
+	let nombreMasVieja;
+
+	 
+	let banderaMasJoven;
+	let edadMascotaMasJoven;
+	let nombreMascotaMasJoven;
+	let diagnosticoMascotaMasJoven;
+
+	let contadorMascotasSinVacunaConParasitos;
+	let contadorGatos;
+	let contadorPerros;
+	let contadorHamster;
+
+	let contadorPerrosOtitis;
+
+	let nombreMascotaMasProblemasDigestivos;
+
+
+
+
+	contadorMascotasSinVacunaConParasitos = 0;
+	contadorGatos = 0;
+	contadorPerros  = 0;
+	contadorHamster = 0;
+	contadorPerrosOtitis = 0;
+
+	banderaMasVieja = true;
+	banderaMasJoven = true;
+
+	do {
+		do {
+			nombre = prompt ("Ingrese el nombre");
+		} while(nombre == ""|| !isNaN(nombre) );
+
+		do {
+			edad = prompt("Ingrese la edad ")
+			edad = parseInt(edad)
+
+		} while (edad < 1 || edad > 20);
+
+		do {
+			tipo = prompt("Ingrese su tipo");
+		} while (tipo != "gato" && tipo != "perro" && tipo != "hamster" );
+
+		do {
+			peso = prompt ("Ingrese el peso")
+			peso = parseInt(peso)
+		}  while (isNaN(peso) || peso < 0);
+
+
+		do {
+			diagnostico = prompt("Ingrese su diagnostico");
+		} while (diagnostico != "problemas digestivos" && diagnostico != "otitis" && diagnostico != "alergias en la piel" && diagnostico != "parasitos");
+
+		do {
+			vacuna = prompt ("Ingrese vacuna si o no");
+		} while (vacuna != "si" && vacuna != "no");
+
+		switch (vacuna) {
+			case "si":
+				if(banderaMasVieja == true) {
+					banderaMasVieja = false;
+					edadMasVieja = edad
+					nombreMasVieja = nombre;
+
+				
+				} else {
+					if(edad > edadMasVieja) {
+						edadMasVieja = edad
+						nombreMasVieja = nombre;
+					}	
+				}
+			break;
+			case "no": 
+				switch(diagnostico){
+					case "parasitos":
+						contadorMascotasSinVacunaConParasitos++;
+					break;
+					
+
+				}
+			break;
+		}
+
+		switch(diagnostico) {
+			case "problemas digestivos":
+				switch(tipo) {
+					case "gato":
+					contadorGatos++;
+					break;
+				case "perro":
+					contadorPerros++;
+					break;
+				case "hamster":
+					contadorHamster++;
+					break;
+				}
+			break;
+			case "otitis":
+				switch(tipo) {
+					case "perro":
+						contadorPerrosOtitis++;
+						break;
+					
+				}
+
+			break;
+		}
+		
+		if (banderaMasJoven == true) {
+			banderaMasJoven = false;
+
+			edadMascotaMasJoven = edad;
+			nombreMascotaMasJoven = nombre;
+			diagnosticoMascotaMasJoven = diagnostico;
+		} else {
+			if(edad < edadMascotaMasJoven) {
+				edadMascotaMasJoven = edad;
+				nombreMascotaMasJoven = nombre;
+				diagnosticoMascotaMasJoven = diagnostico;
+			}
+		}
+		
+		respuesta = confirm("desea continuar?");
+	} while (respuesta == true);
+
+
+	//calcular el tipo de mascota con mas ingresos por problemas digestivos
+
+	if (contadorGatos > contadorPerros && contadorGatos > contadorHamster) {
+		nombreMascotaMasProblemasDigestivos = "Gatos"
+	} else {
+		if(contadorPerros > contadorGatos && contadorPerros > contadorGatos) {
+			nombreMascotaMasProblemasDigestivos = "Perros"
+		} else {
+			if (contadorHamster > contadorPerros && contadorHamster > contadorGatos) {
+				nombreMascotaMasProblemasDigestivos = "Hamster"
+			}
+		}
+	}
+
+	
+
+	mensaje = "\n nombre de la mascota mas vieja con la vacuna antirrabica  " + nombreMasVieja;
+	mensaje += "\n cantidad de mascotas sin vacuna antirrabica y con parasitos" + contadorMascotasSinVacunaConParasitos;
+	mensaje += "\n tipo de mascota con mas ingresos por problemas digestivos" +  nombreMascotaMasProblemasDigestivos;
+	mensaje += "\n Nombre, edad y diagnóstico de la mascota más joven ingresada " + nombreMascotaMasJoven + edadMascotaMasJoven + diagnosticoMascotaMasJoven;
+	mensaje += "\n Cantidad de perros ingresados por otitis " + contadorPerrosOtitis;
+
+	alert(mensaje)
+
+} */
+
+
+/* Practica Parcial Ejercicio 3 corregido?
 
 Una fabrica de muebles nos pide realizar una app para gestionar sus productos. 
 El programa pide dar de alta cada venta realizada (Cada venta representa un mueble 
@@ -373,73 +686,359 @@ Los muebles de vidrio o metal tienen un 10% de descuento.
 
 Se pide
 
-a)Precio promedio por mueble vendido
-b)Cantidad total de muebles de madera
-c)El mueble de metal más alto 
-d)El mueble más liviano
-e)Porcentaje de muebles de cada tipo de material
-f)Monto total recaudado bruto de todos los muebles (sin descuentos ni impuestos)
-g)Monto total recaudado, pero solo de los muebles de madera(incluido descuentos e impuestos)
+a)Precio promedio por mueble vendido 
+b)Cantidad total de muebles de madera x 
+c)El mueble de metal más alto --maximo altura NOMBREx 
+d)El mueble más liviano -- minimo peso x 
+e)Porcentaje de muebles de cada tipo de material x
+f)Monto total recaudado bruto de todos los muebles (sin descuentos ni impuestos) acumulador madera, acumnulador vidrio, acmetal x
+g)Monto total recaudado, pero solo de los muebles de madera(incluido descuentos e impuestos) accmadera + 15 %x 
 
 NOTA: Los precios no podran ser cero ni negativo.
-*/ 
+
 
 function mostrar () {
-	alert("hola")
-}
+	let respuesta;
+	let mensaje;
+	let nombreMueble;
+	let materialMueble;
+	let pesoMueble;
+	let alturaMueble;
+	let anchoMueble;
+	let precioMueble;
+
+	let contadorTotal;
+	let contadorMadera;
+	let contadorVidrio;
+	let contadorMetal;
+
+	let acumuladorMadera;
+	let acumuladorVidrio;
+	let acumuladorMetal;
+
+	let banderaMetalMasAlto;
+	let nombreMetalMasAlto;
+	let metalAlto;
+	
+
+	let banderaMuebleMasLiviano;
+	let nombreMasLiviano;
+	let pesoMasLiviano;
+
+	let porcentajeMadera;
+	let porcentajeVidrio;
+	let porcentajeMetal;
+	
+	
+	let montoTotalRecaudado;
+	let montoTotalRecaudadoMadera;
+	let montoTotalRecaudadoMetal;
+	let montoTotalRecaudadoVidrio;
+
+	let montoTotalRecaudadoImpuestosDescuentos;
+
+	let precioPromedio;
+	let sumaContadores;
+
+	//inicializacion de banderas;
+
+	banderaMetalMasAlto = true;
+	banderaMuebleMasLiviano = true;
+
+	//inicializacion de contadores y acumuladores
+	
+	acumuladorMadera = 0;
+ 	acumuladorVidrio = 0;
+	acumuladorMetal  = 0;
+
+	contadorTotal = 0;
+	contadorMadera = 0;
+	contadorVidrio = 0;
+	contadorMetal = 0;
+
+
+	do {
+		do {
+			nombreMueble = prompt ("Ingrese el nombreMueble");
+		} while(nombreMueble == ""|| !isNaN(nombreMueble) );
+
+		do {
+			materialMueble = prompt("Ingrese su materialMueble");
+		} while (materialMueble != "madera" && materialMueble != "metal" && materialMueble != "vidrio" );
+
+		do {
+			pesoMueble = prompt ("Ingrese el pesoMueble")
+			pesoMueble = parseInt(pesoMueble)
+		}  while (isNaN(pesoMueble) || pesoMueble < 0);
+
+		do {
+			alturaMueble = prompt ("Ingrese el alturaMueble")
+			alturaMueble = parseInt(alturaMueble)
+		}  while (isNaN(alturaMueble) || alturaMueble < 0);
+
+		do {
+			anchoMueble = prompt ("Ingrese el anchoMueble")
+			anchoMueble = parseInt(anchoMueble)
+		}  while (isNaN(anchoMueble) || anchoMueble < 0);
+
+		do {
+			precioMueble = prompt ("Ingrese el precioMueble")
+			precioMueble = parseInt(precioMueble)
+		}  while (isNaN(precioMueble) || precioMueble < 0);
+
+		switch(materialMueble) {
+			case "madera":
+				contadorMadera++;
+				acumuladorMadera += precioMueble;
+			break;
+			case "vidrio":
+				contadorVidrio++;
+				acumuladorVidrio += precioMueble;
+			break;
+			case "metal":
+				contadorMetal++;
+				acumuladorMetal += precioMueble;
+				if(banderaMetalMasAlto == true) {
+					banderaMetalMasAlto = false;
+					metalAlto = alturaMueble 
+
+					nombreMetalMasAlto = nombreMueble;
+
+
+				
+				} else {
+					if(alturaMueble > metalAlto) {
+						metalAlto = alturaMueble 
+
+						nombreMetalMasAlto = nombreMueble;
+					}
+				}
+			break;
+
+		}
+
+		//minimo todos muebles
+
+		if (banderaMuebleMasLiviano == true) {
+			banderaMuebleMasLiviano = false;
+			nombreMasLiviano = nombreMueble;
+			pesoMasLiviano = pesoMueble;
+		} else {
+			if(pesoMueble < pesoMasLiviano) {
+				nombreMasLiviano = nombreMueble;
+				pesoMasLiviano = pesoMueble;
+			}
+		}
+
+
+
+		respuesta = confirm("desea continuar?");
+	} while (respuesta == true);
+
+	//cuentas correspondientes a partir de contador y acumuladores
+
+
+	montoTotalRecaudado = acumuladorMadera + acumuladorMetal + acumuladorVidrio;
+	
+	montoTotalRecaudadoMadera = acumuladorMadera * 1.15;
+	montoTotalRecaudadoMetal = acumuladorMetal * 0.90;
+	montoTotalRecaudadoVidrio = acumuladorVidrio * 0.90;
+
+	montoTotalRecaudadoImpuestosDescuentos = montoTotalRecaudadoMadera + montoTotalRecaudadoMetal + montoTotalRecaudadoVidrio;
+
+	sumaContadores = contadorMadera + contadorVidrio + contadorMetal;
+
+	porcentajeMadera = contadorMadera / sumaContadores * 100 ;
+	porcentajeVidrio = contadorVidrio / sumaContadores * 100;
+	porcentajeMetal = contadorMetal / sumaContadores * 100;
+
+	
+	precioPromedio = montoTotalRecaudado / sumaContadores;
+
+	//Desarrollo del mensaje final en base a resultadoss
+	mensaje = "<br> El promedio de precio por mueble vendido es de " + precioPromedio; 
+	mensaje += "<br> La cantidad total de muebles de madera es de " + contadorMadera;
+	mensaje += "<br> El mueble de metal mas alto es el " + nombreMetalMasAlto;
+	mensaje += "<br>  El mueble mas liviano es el" + nombreMasLiviano;
+	mensaje += "<br> el porcentaje de cada mueble vendido sobre la cantidad total es de " + "<br> madera: " + porcentajeMadera + "<br> vidrio: "  +  porcentajeVidrio + "<br> metal: " + porcentajeMetal;
+	mensaje += "<br> El monto total recaudo es de " + montoTotalRecaudado;
+	mensaje += "<br> El monto total recaudado de los muebles de madera es de " + montoTotalRecaudadoMadera;
+	mensaje += "<br> El monto total recaudado incluido impuestos y descuentos es de  " + montoTotalRecaudadoImpuestosDescuentos;
+	
+	
+
+
+	document.write(mensaje);
+} */ 
+
+
+/*Practica Parcial Ejercicio 3 intento 1 sin correciones 
+function mostrar () {
+	let respuesta;
+	let mensaje;
+	let nombreMueble;
+	let materialMueble;
+	let pesoMueble;
+	let alturaMueble;
+	let anchoMueble;
+	let precioMueble;
+
+	let contadorTotal;
+	let contadorMadera;
+	let contadorVidrio;
+	let contadorMetal;
+
+	let acumuladorMadera;
+	let acumuladorVidrio;
+	let acumuladorMetal;
+
+	let banderaMetalMasAlto;
+	let nombreMetalMasAlto;
+	let metalAlto;
+	
+
+	let banderaMuebleMasLiviano;
+	let nombreMasLiviano;
+	let pesoMasLiviano;
+
+	let porcentajeMadera;
+	let porcentajeVidrio;
+	let porcentajeMetal;
+	
+	
+	let montoTotalRecaudado;
+	let montoTotalRecaudadoMadera;
+
+	let precioPromedio;
+	let sumaContadores;
+
+	//inicializacion de banderas;
+
+	banderaMetalMasAlto = true;
+	banderaMuebleMasLiviano = true;
+
+	//inicializacion de contadores y acumuladores
+	
+	acumuladorMadera = 0;
+ 	acumuladorVidrio = 0;
+	acumuladorMetal  = 0;
+
+	contadorTotal = 0;
+	contadorMadera = 0;
+	contadorVidrio = 0;
+	contadorMetal = 0;
+
+
+	do {
+		do {
+			nombreMueble = prompt ("Ingrese el nombreMueble");
+		} while(nombreMueble == ""|| !isNaN(nombreMueble) );
+
+		do {
+			materialMueble = prompt("Ingrese su materialMueble");
+		} while (materialMueble != "madera" && materialMueble != "metal" && materialMueble != "vidrio" );
+
+		do {
+			pesoMueble = prompt ("Ingrese el pesoMueble")
+			pesoMueble = parseInt(pesoMueble)
+		}  while (isNaN(pesoMueble) || pesoMueble < 0);
+
+		do {
+			alturaMueble = prompt ("Ingrese el alturaMueble")
+			alturaMueble = parseInt(alturaMueble)
+		}  while (isNaN(alturaMueble) || alturaMueble < 0);
+
+		do {
+			anchoMueble = prompt ("Ingrese el anchoMueble")
+			anchoMueble = parseInt(anchoMueble)
+		}  while (isNaN(anchoMueble) || anchoMueble < 0);
+
+		do {
+			precioMueble = prompt ("Ingrese el precioMueble")
+			precioMueble = parseInt(precioMueble)
+		}  while (isNaN(precioMueble) || precioMueble < 0);
+
+		switch(materialMueble) {
+			case "madera":
+				contadorMadera++;
+				acumuladorMadera += precioMueble;
+			break;
+			case "vidrio":
+				contadorVidrio++;
+				acumuladorVidrio += precioMueble;
+			break;
+			case "metal":
+				contadorMetal++;
+				acumuladorMetal += precioMueble;
+				if(banderaMetalMasAlto == true) {
+					banderaMetalMasAlto = false;
+					metalAlto = alturaMueble 
+
+					nombreMetalMasAlto = nombreMueble;
+
+
+				
+				} else {
+					if(alturaMueble > metalAlto) {
+						metalAlto = alturaMueble 
+
+						nombreMetalMasAlto = nombreMueble;
+					}
+				}
+			break;
+
+		}
+
+		//minimo todos muebles
+
+		if (banderaMuebleMasLiviano == true) {
+			banderaMuebleMasLiviano = false;
+			nombreMasLiviano = nombreMueble;
+			pesoMasLiviano = pesoMueble;
+		} else {
+			if(pesoMueble < pesoMasLiviano) {
+				nombreMasLiviano = nombreMueble;
+				pesoMasLiviano = pesoMueble;
+			}
+		}
+
+
+
+		respuesta = confirm("desea continuar?");
+	} while (respuesta == true);
+
+	//cuentas correspondientes a partir de contador y acumuladores
+
+
+	montoTotalRecaudado = acumuladorMadera + acumuladorMetal + acumuladorVidrio;
+	montoTotalRecaudadoMadera = acumuladorMadera * 1.15;
+
+	porcentajeMadera = contadorMadera / contadorTotal * 100 ;
+	porcentajeVidrio = contadorVidrio / contadorTotal * 100;
+	porcentajeMetal = contadorMetal / contadorTotal * 100;
+
+	sumaContadores = contadorMadera + contadorVidrio + contadorMetal;
+
+	precioPromedio = montoTotalRecaudado / sumaContadores;
+
+	//Desarrollo del mensaje final en base a resultadoss
+
+	mensaje = "\n La cantidad total de muebles de madera es de " + contadorMadera;
+	mensaje += "\n El monto total recaudo es de " + montoTotalRecaudado;
+	mensaje += "\n El monto total recaudado de los muebles de madera es de " + montoTotalRecaudadoMadera;
+	mensaje += "\n el porcentaje de cada mueble vendido sobre la cantidad total es de " + porcentajeMadera + "" +  porcentajeVidrio + "" + porcentajeMetal;
+	mensaje += "\n El promedio de precio por mueble vendido es de " + precioPromedio; 
+
+
+	alert(mensaje)
+
+}*/
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* A)Nos ingresan una cantidad indeterminada 
+/* Practica parcial ejercicio Octavio Classroom
+A)Nos ingresan una cantidad indeterminada 
 de estadías de  vacaciones,
 validando los datos ingresados:
 
@@ -452,10 +1051,10 @@ validando los datos ingresados:
 -peso del pasajero
 -sexo pasajero (F o M o NB)
 -Viaja con equipaje de mano?
--paga con mercado , tarjeta o efectivo*/ 
+-paga con mercado , tarjeta o efectivo 
 
 
-/* 
+
 1 
 a- cantidad de personas que viajan en cada temporada
 b- el peso acumulado de todos los que viajan a villa gessel
@@ -718,32 +1317,7 @@ function mostrar(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* EJ 1 E/S
+/* EJ 1 E/S ORIGINAL
 Al presionar el  botón, 
 se debe mostrar un mensaje como el siguiente "Esto funciona de maravilla"
 
@@ -761,10 +1335,11 @@ A -realizar un algoritmo para ingresar los datos por prompt de una pareja de via
 necesitamos pedir los nombre s de los dos pasajeros y los pesos corporales de cada uno ,
 al final deberemos mostrar un mensaje que diga 
 “bienvenidos a Space x JOSE y MARIA , sus pesos son de 60 y 80 kilos cada uno ,y sumados con 150 kilos”
- al algoritmo anterior se le debe agregar el siguiente mensaje si los kilos superan los 250 kilos entre los dos pasajeros
- “ con el peso actual de 280 kilos , ustedes no pueden viajar”
-*/ 
-/*function mostrar()
+al algoritmo anterior se le debe agregar el siguiente mensaje si los kilos superan los 250 kilos entre los dos pasajeros
+“ con el peso actual de 280 kilos , ustedes no pueden viajar”
+
+
+function mostrar()
 {
 	//alert("Esto funciona de maravilla");
 	let nombre1;
